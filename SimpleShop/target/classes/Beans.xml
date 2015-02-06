@@ -3,6 +3,58 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="category1" class="ru.vyrostkoolga.SimpleShop.Category">
-
+	<bean id="category1" class="realisations.Category">
+		<constructor-arg name="name" value="fruits" />
+	</bean>
+	<bean id="category2" class="realisations.Category">
+		<constructor-arg name="name" value="veretables" />
+	</bean>
+	<bean id="category3" class="realisations.Category">
+		<constructor-arg name="name" value="berries" />
+	</bean>
+	
+	<bean id="apple" class="realisations.Good">
+		<constructor-arg name="name" value="apples" />
+		<constructor-arg name="price" value="100.0" />
+		<constructor-arg name="cat" ref="category1" />
+		<constructor-arg name="qty" value="10" />
+	</bean>
+	
+	<bean id="grape" class="realisations.Good">
+		<constructor-arg name="name" value="grapes" />
+		<constructor-arg name="price" value="250.10" />
+		<constructor-arg name="cat" ref="category1" />
+		<constructor-arg name="qty" value="20" />
+	</bean>
+	
+	<bean id="potato" class="realisations.Good">
+		<constructor-arg name="name" value="potatoes" />
+		<constructor-arg name="price" value="55.0" />
+		<constructor-arg name="cat" ref="category2" />
+		<constructor-arg name="qty" value="35" />
+	</bean>
+	
+	<bean id="tomato" class="realisations.Good">
+		<constructor-arg name="name" value="tomatos" />
+		<constructor-arg name="price" value="72.70" />
+		<constructor-arg name="cat" ref="category2" />
+		<constructor-arg name="qty" value="15" />
+	</bean>
+	
+	<bean id="strowberry" class="realisations.Good">
+		<constructor-arg name="name" value="strowberries" />
+		<constructor-arg name="price" value="450.10" />
+		<constructor-arg name="cat" ref="category3" />
+		<constructor-arg name="qty" value="5" />
+	</bean>
+	
+	<bean id="WH1" class="realisations.Warehouse">
+		<constructor-arg>
+			<list>
+				<ref bean="tomato"/>
+				<ref bean="apple"/>
+				<ref bean="strowberry"/>
+			</list>
+		</constructor-arg>
+	</bean>
 </beans>

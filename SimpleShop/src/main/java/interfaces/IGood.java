@@ -13,5 +13,7 @@ public interface IGood
 	
 	public void setQty(int qty);
 	public int getQty();
+	
+	public String getInfo();
 
 }

@@ -32,4 +32,9 @@ public class Good implements IGood
 	public int getQty() {return _qty;}
 	
 	public String toString() {return getName();}
+	
+	public String getInfo()
+	{
+		return getName() + " " + _qty;
+	}
 }

@@ -22,16 +22,16 @@ public class Warehouse implements IWarehouse
 		_goods = goods;
 	}
 
-	public void getOneGood(ICategory cat) 
+	public void getOneGood(String name, int num) 
 	{
 		for (IGood one: _goods)
 		{
-			if (one.getCategory().equals(cat))
+			if (one.getName().equals(name))
 			{
 				int qty = one.getQty();
-				if (qty > 0)
+				if (qty >= num)
 				{
-					qty -= 1;
+					qty -= num;
 					one.setQty(qty);
 					break;
 				}
@@ -47,5 +47,15 @@ public class Warehouse implements IWarehouse
 	public String toString()
 	{
 		return "SimpleWarehouse";
+	}
+	
+	public String getInfo()
+	{
+		StringBuffer buf = new StringBuffer();
+		for (IGood one: _goods)
+		{
+			buf.append(one.getInfo() + "\n");
+		}
+		return new String(buf);
 	}
 }
